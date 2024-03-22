@@ -6,11 +6,13 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.InputMismatchException;
-import java.util.Objects;
 import java.util.Scanner;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @DisplayName("입출력 담당 객체 테스트")
 class IoTakerTest {
@@ -49,9 +51,22 @@ class IoTakerTest {
     }
 
     @Test
-    @DisplayName("입출력 담당 객체의 생성을 확인")
-    void requireNonNullIoTaker() {
-        assertThatCode(() -> Objects.requireNonNull(IoTaker.getInstance())).doesNotThrowAnyException();
+    @DisplayName("입출력 담당 객체가 정적 메서드만 호출 가능한지 확인")
+    void requireNonNullIoTaker() throws NoSuchMethodException {
+        Constructor<IoTaker> constructor = IoTaker.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        assertThatThrownBy(constructor::newInstance).isInstanceOf(InvocationTargetException.class);
+    }
+
+    @Test
+    @DisplayName("세자리 숫자 입력 확인")
+    void check3DigitsInput() {
+    }
+
+    @Test
+    @DisplayName("세자리가 아닌 숫자 입력 확인")
+    void check2DigitsInput() {
+
     }
 
 }

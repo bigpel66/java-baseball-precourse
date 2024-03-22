@@ -1,15 +1,7 @@
-import java.util.Objects;
-
 public final class IoTaker {
 
-    public static final IoTaker INSTANCE = new IoTaker();
-
     private IoTaker() {
-    }
-
-    public static IoTaker getInstance() {
-        Objects.requireNonNull(INSTANCE);
-        return INSTANCE;
+        throw new AssertionError("정적 메서드만 존재하는 객체로 생성 방지");
     }
 
 }
