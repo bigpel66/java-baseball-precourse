@@ -26,6 +26,7 @@
     * private matchDigit()
 3. 상태 Status 객체
     * public of()
+    * public newInstance()
     * public increaseStrike()
     * public increaseBall()
     * public toString()
