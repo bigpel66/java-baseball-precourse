@@ -63,7 +63,7 @@ class IoTakerTest {
     void check3DigitsInput() {
         setInputStream("123");
         Scanner sc = new Scanner(System.in);
-        String input = IoTaker.getGuess(sc);
+        String input = IoTaker.guess(sc);
         assertThat(input).isEqualTo("123");
     }
 
@@ -72,7 +72,7 @@ class IoTakerTest {
     void checkDuplicatedDigits() {
         setInputStream("122");
         Scanner sc = new Scanner(System.in);
-        assertThatThrownBy(() -> IoTaker.getGuess(sc)).isInstanceOf(InputMismatchException.class);
+        assertThatThrownBy(() -> IoTaker.guess(sc)).isInstanceOf(InputMismatchException.class);
     }
 
     @Test
@@ -80,7 +80,7 @@ class IoTakerTest {
     void check2DigitsInput() {
         setInputStream("99");
         Scanner sc = new Scanner(System.in);
-        assertThatThrownBy(() -> IoTaker.getGuess(sc)).isInstanceOf(InputMismatchException.class);
+        assertThatThrownBy(() -> IoTaker.guess(sc)).isInstanceOf(InputMismatchException.class);
     }
 
     @Test
@@ -88,7 +88,7 @@ class IoTakerTest {
     void checkNonDigitInput() {
         setInputStream("abc");
         Scanner sc = new Scanner(System.in);
-        assertThatThrownBy(() -> IoTaker.getGuess(sc)).isInstanceOf(InputMismatchException.class);
+        assertThatThrownBy(() -> IoTaker.guess(sc)).isInstanceOf(InputMismatchException.class);
     }
 
     @Test

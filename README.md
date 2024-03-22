@@ -21,7 +21,8 @@
     * public generate()
 2. 정답 Answer 객체
     * public of()
-    * public getStatus()
+    * public grade()
+    * public status()
     * private containsDigit()
     * private matchDigit()
 3. 상태 Status 객체
@@ -32,7 +33,7 @@
     * public toString()
     * public isFinish()
 4. 입출력 담당 IoTaker 객체 // View
-    * public getGuess()
+    * public guess()
     * public isContinue()
     * public showStatus()
     * public showEndMessage()

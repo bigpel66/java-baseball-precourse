@@ -7,7 +7,8 @@ public final class IoTaker {
         throw new AssertionError("정적 메서드만 존재하는 객체로 생성 방지");
     }
 
-    public static String getGuess(Scanner scanner) {
+    public static String guess(Scanner scanner) {
+        System.out.print("숫자를 입력해주세요 : ");
         String input = scanner.next();
         if (input.length() != 3 || !isInteger(input)) {
             throw new InputMismatchException("[Error] 입력 값은 세자리 숫자로 이뤄져야합니다.");
