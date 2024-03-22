@@ -61,12 +61,26 @@ class IoTakerTest {
     @Test
     @DisplayName("세자리 숫자 입력 확인")
     void check3DigitsInput() {
+        setInputStream("999");
+        Scanner sc = new Scanner(System.in);
+        String input = IoTaker.getGuess(sc);
+        assertThat(input).isEqualTo("999");
     }
 
     @Test
     @DisplayName("세자리가 아닌 숫자 입력 확인")
     void check2DigitsInput() {
+        setInputStream("99");
+        Scanner sc = new Scanner(System.in);
+        assertThatThrownBy(() -> IoTaker.getGuess(sc)).isInstanceOf(InputMismatchException.class);
+    }
 
+    @Test
+    @DisplayName("숫자가 아닌 입력 값 필터링 확인")
+    void checkNonDigitInput() {
+        setInputStream("abc");
+        Scanner sc = new Scanner(System.in);
+        assertThatThrownBy(() -> IoTaker.getGuess(sc)).isInstanceOf(InputMismatchException.class);
     }
 
 }
