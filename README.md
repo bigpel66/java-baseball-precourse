@@ -16,7 +16,7 @@
 
 0. Game 객체
     * public start() // Controller
-    * public getInstance()
+    * public newInstance()
 1. 랜덤 숫자 RandomGenerator 객체
     * public getInstance()
 2. 정답 Answer 객체

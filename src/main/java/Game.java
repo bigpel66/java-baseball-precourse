@@ -1,14 +1,19 @@
+import java.util.Scanner;
+
 public class Game {
 
-    public Game() {
+    private Scanner scanner;
+
+    public Game(Scanner scanner) {
+        this.scanner = scanner;
     }
 
     public void start() {
 
     }
 
-    public static Game newInstance() {
-        return new Game();
+    public static Game newInstance(Scanner scanner) {
+        return new Game(scanner);
     }
 
 }
