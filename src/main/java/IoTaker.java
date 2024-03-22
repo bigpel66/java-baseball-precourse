@@ -7,7 +7,7 @@ public final class IoTaker {
     private IoTaker() {
     }
 
-    public IoTaker getInstance() {
+    public static IoTaker getInstance() {
         Objects.requireNonNull(INSTANCE);
         return INSTANCE;
     }
