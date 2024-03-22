@@ -12,18 +12,21 @@ public final class Game {
     }
 
     public void start() {
-        while (true) {
-            try {
-                String guess = IoTaker.guess(scanner);
-                IoTaker.showStatus(answer.grade(guess));
-                if (answer.status().isFinish()) {
-                    IoTaker.showEndMessage();
-                    return;
-                }
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+        while (loop()) ;
+    }
+
+    private boolean loop() {
+        try {
+            String guess = IoTaker.guess(scanner);
+            IoTaker.showStatus(answer.grade(guess));
+            if (answer.status().isFinish()) {
+                IoTaker.showEndMessage();
+                return false;
             }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
+        return true;
     }
 
     public static Game of(Scanner scanner, Answer answer) {
