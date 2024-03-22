@@ -2,6 +2,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -19,6 +20,10 @@ class IoTakerTest {
     @AfterEach
     void restoreOutputStream() {
         System.setOut(System.out);
+    }
+
+    void setInputStream(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 
 }
