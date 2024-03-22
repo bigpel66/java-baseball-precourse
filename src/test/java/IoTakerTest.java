@@ -83,4 +83,11 @@ class IoTakerTest {
         assertThatThrownBy(() -> IoTaker.getGuess(sc)).isInstanceOf(InputMismatchException.class);
     }
 
+    @Test
+    @DisplayName("게임 종료 후 출력 메시지 확인")
+    void checkEndMessage() {
+        IoTaker.showEndMessage();
+        assertThat(outputStream.toString()).isEqualTo("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.\n");
+    }
+
 }
