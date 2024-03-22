@@ -15,6 +15,14 @@ public final class IoTaker {
         return input;
     }
 
+    public static boolean isContinue(Scanner scanner) {
+        String input = scanner.next();
+        if (input.length() != 1 || !isInteger(input) || !"12".contains(input)) {
+            throw new InputMismatchException("[Error] 게임 종료 여부 값은 1 (새로 시작), 2 (게임 종료)로 입력하세요.");
+        }
+        return "1".equals(input);
+    }
+
     public static void showEndMessage() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
     }

@@ -84,6 +84,30 @@ class IoTakerTest {
     }
 
     @Test
+    @DisplayName("게임 재개 확인")
+    void checkContinueGame() {
+        setInputStream("1");
+        Scanner sc = new Scanner(System.in);
+        assertThat(IoTaker.isContinue(sc)).isTrue();
+    }
+
+    @Test
+    @DisplayName("게임 종료 확인")
+    void checkStopGame() {
+        setInputStream("2");
+        Scanner sc = new Scanner(System.in);
+        assertThat(IoTaker.isContinue(sc)).isFalse();
+    }
+
+    @Test
+    @DisplayName("게임 재개/종료 여부에서 잘못된 값 입력 확인")
+    void checkWrongInputContinuable() {
+        setInputStream("a");
+        Scanner sc = new Scanner(System.in);
+        assertThatThrownBy(() -> IoTaker.isContinue(sc)).isInstanceOf(InputMismatchException.class);
+    }
+
+    @Test
     @DisplayName("게임 종료 후 출력 메시지 확인")
     void checkEndMessage() {
         IoTaker.showEndMessage();
