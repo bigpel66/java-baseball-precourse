@@ -2,6 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public final class Answer {
+    
     private Status status;
 
     private final String value;
