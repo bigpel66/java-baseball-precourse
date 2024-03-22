@@ -7,10 +7,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("입출력 담당 객체 테스트")
 class IoTakerTest {
@@ -46,6 +46,12 @@ class IoTakerTest {
         setInputStream("string");
         Scanner sc = new Scanner(System.in);
         assertThatThrownBy(sc::nextInt).isInstanceOf(InputMismatchException.class);
+    }
+
+    @Test
+    @DisplayName("입출력 담당 객체의 생성을 확인")
+    void requireNonNullIoTaker() {
+        assertThatCode(() -> Objects.requireNonNull(IoTaker.getInstance())).doesNotThrowAnyException();
     }
 
 }
