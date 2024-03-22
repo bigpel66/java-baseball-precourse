@@ -116,6 +116,13 @@ class IoTakerTest {
     }
 
     @Test
+    @DisplayName("상태 문자열 출력 확인")
+    void checkStatus() {
+        IoTaker.showStatus(Status.of(1, 0));
+        assertThat(outputStream.toString()).isEqualTo("1스트라이크\n");
+    }
+
+    @Test
     @DisplayName("게임 종료 후 출력 메시지 확인")
     void checkEndMessage() {
         IoTaker.showEndMessage();
