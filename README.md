@@ -28,6 +28,7 @@
    * public toString()
    * public isFinish()
 4. 입출력 담당 IoTaker 객체 // View
+   * public getInstance()
    * public getInput()
    * public showStatus()
    * public isContinue()
