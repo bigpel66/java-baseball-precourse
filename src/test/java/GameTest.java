@@ -13,7 +13,8 @@ class GameTest {
     @DisplayName("게임 객체 정상 생성 확인")
     void requireNonNullGame() {
         Scanner sc = new Scanner(System.in);
-        assertThatCode(() -> Objects.requireNonNull(Game.newInstance(sc))).doesNotThrowAnyException();
+        assertThatCode(() -> Objects.requireNonNull(Game.of(sc, Answer.of(RandomGenerator.generate()))))
+                .doesNotThrowAnyException();
     }
 
 }

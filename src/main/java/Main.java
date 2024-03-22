@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
-                Game game = Game.newInstance(scanner);
+                Game game = Game.of(scanner, Answer.of(RandomGenerator.generate()));
                 game.start();
                 if (!IoTaker.isContinue(scanner)) {
                     System.out.println("게임을 종료합니다.");

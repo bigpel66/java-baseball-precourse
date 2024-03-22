@@ -16,16 +16,16 @@
 
 0. Game 객체
     * public start() // Controller
-    * public newInstance()
+    * public of()
 1. 랜덤 숫자 RandomGenerator 객체
-    * public getInstance()
+    * public generate()
 2. 정답 Answer 객체
     * public of()
     * public getStatus()
     * private containsDigit()
     * private matchDigit()
 3. 상태 Status 객체
-    * public newInstance()
+    * public of()
     * public increaseStrike()
     * public increaseBall()
     * public toString()
