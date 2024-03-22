@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Game {
+public final class Game {
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
-    private Answer answer;
+    private final Answer answer;
 
     public Game(Scanner scanner, Answer answer) {
         this.scanner = scanner;
